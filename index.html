@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison — Ceramics & Home Decor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav__logo">Maison</a>
+    <ul class="nav__links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#collection" class="nav__cta">Shop Now →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__meta">Spring 2026 &nbsp;·&nbsp; Ceramics &nbsp;·&nbsp; Home Decor</p>
+      <h1 class="hero__title">Objects that<br>breathe space</h1>
+      <p class="hero__sub">A curated collection of handcrafted vases and ceramic objects for the modern home.</p>
+      <a href="#collection" class="hero__btn">Explore Collection →</a>
+    </div>
+    <div class="hero__peek">
+      <img src="images/61a2baE1W0L.jpg" alt="Ceramic vase">
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="collection" id="collection">
+
+    <div class="mode-toggle" id="modeToggle">
+      <button class="mode-btn active" data-mode="image">⊞ Image mode</button>
+      <button class="mode-btn" data-mode="classic">≡ Classic mode</button>
+    </div>
+
+    <!-- IMAGE MODE GALLERY -->
+    <div class="gallery gallery--image" id="imageGallery">
+      <div class="scroll-counter" id="scrollCounter">1 / 12</div>
+      <div class="lock-hint" id="lockHint">
+        <span class="lock-icon" id="lockIcon">⊕</span>
+        <span id="lockLabel">Click image to lock scroll</span>
+      </div>
+    </div>
+
+    <!-- CLASSIC MODE GALLERY -->
+    <div class="gallery gallery--classic hidden" id="classicGallery"></div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__text">
+        <h2>Crafted with intention</h2>
+        <p>Every object in our collection is designed to be both functional and beautiful. We work with artisan studios across Europe to bring you ceramics that feel honest — imperfect in the right way, enduring in all the ways that matter.</p>
+        <p>Our pieces are made in small batches. No mass production. When something sells out, it's gone.</p>
+      </div>
+      <div class="about__visual">
+        <img src="images/image.png" alt="A vase on a table">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <h2 class="footer__logo">Maison</h2>
+        <p>Handcrafted objects for the modern home.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p><a href="mailto:hello@maison.shop">hello@maison.shop</a></p>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Pinterest</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <p><a href="#">Vases</a></p>
+        <p><a href="#">Ceramic Sets</a></p>
+        <p><a href="#">Gift Bundles</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Info</h4>
+        <p><a href="#">Shipping</a></p>
+        <p><a href="#">Returns</a></p>
+        <p><a href="#">Care Guide</a></p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Maison. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
