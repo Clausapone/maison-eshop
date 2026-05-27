@@ -105,18 +105,23 @@ function buildImageGallery() {
       <div class="image-slide__img-wrap">
         <img class="image-slide__img" src="images/${encodeFilename(p.file)}" alt="${p.name}">
       </div>
-      <div class="image-slide__info">
-        <div>
-          ${p.tag ? `<div class="image-slide__tag">${p.tag}</div>` : ''}
-          <div class="image-slide__name">${p.name}</div>
-          <div class="image-slide__price">${p.price}</div>
-        </div>
-        <button class="image-slide__cta" data-index="${i}">Add to Cart</button>
-      </div>
     `;
 
     imageGallery.appendChild(slide);
   });
+
+  // Entrance animation: add .visible when slide is ≥50% in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('visible', entry.isIntersecting);
+      if (entry.isIntersecting) {
+        const idx = parseInt(entry.target.dataset.index, 10);
+        scrollCounter.textContent = `${idx + 1} / ${products.length}`;
+      }
+    });
+  }, { root: imageGallery, threshold: 0.5 });
+
+  imageGallery.querySelectorAll('.image-slide').forEach(s => observer.observe(s));
 }
 
 // ─── BUILD CLASSIC MODE ────────────────────────────────────
@@ -168,16 +173,7 @@ imageGallery.addEventListener('click', (e) => {
   setLocked(!isLocked);
 });
 
-// ─── SCROLL COUNTER UPDATE ─────────────────────────────────
-function updateCounter() {
-  const slides = imageGallery.querySelectorAll('.image-slide');
-  const scrollTop = imageGallery.scrollTop;
-  const slideHeight = imageGallery.clientHeight;
-  const current = Math.round(scrollTop / slideHeight) + 1;
-  scrollCounter.textContent = `${current} / ${slides.length}`;
-}
-
-imageGallery.addEventListener('scroll', updateCounter, { passive: true });
+// counter is updated by the IntersectionObserver inside buildImageGallery()
 
 // ─── MODE SWITCHING ────────────────────────────────────────
 function switchMode(mode) {
@@ -233,4 +229,3 @@ buildClassicGallery();
 // Show counter and hint for image mode (default)
 scrollCounter.style.display = 'block';
 lockHint.classList.add('visible');
-updateCounter();
